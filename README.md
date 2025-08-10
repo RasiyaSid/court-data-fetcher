@@ -2,30 +2,32 @@
 Mini dashboard to retrieve court case details from eCourts portal
 
 ##  Overview
-This project is a Flask + Selenium-based web application designed to fetch case details from the **Thrissur District Court Orders Search** portal.  
-The user provides case details via an HTML form, and the system scrapes the court website to retrieve and display the information.
+This web application allows users to enter court case details through a simple HTML form.  
+The backend uses **Selenium automation** to fill out the official Thrissur District Court search form and retrieve case information directly from the **eCourts portal**.
+
 
 ##  Features Implemented
-- HTML form for user input (`case_type`, `case_number`, `case_year`)
-- Flask backend to handle requests and responses
-- Selenium-based automation to:
-  - Open the Thrissur District Court search page
-  - Fill in form details automatically
-  - Retrieve case details from the results page
-- Result display on a dedicated HTML page
-
-##  Current Limitations
-- Extraction of data from the court page is not implemented in the current version.
-- PDF extraction of court orders is also not implemented.
-- The application currently focuses on opening the court search page and automating form submission.
+- User-friendly HTML form to input:
+  - **Case Type**
+  - **Case Number**
+  - **Case Year**
+- **Flask** backend to handle form submissions
+- **Selenium** automation to:
+  - Navigate to the Thrissur District Court search page
+  - Automatically fill in the search form
+  - Submit the form and retrieve results
+- Results displayed on a dedicated HTML results page
 
 ## Project Structure
-court-dashboard/  
+court-data-fetcher/  
 ├── app.py # Flask application  
 ├── scraper.py # Selenium scraping logic  
 ├── templates/  
-│ └── index.html # Input form  
-├── requirements.txt # Python dependencies  
+│ ├── index.html # Input form  
+│ ├── result.html # Results display  
+│ └── captcha.html # CAPTCHA entry page  
+├── static/  
+│ └── style.css #Styling for HTML templates  
 ├── README.md # Project documentation
 
 
@@ -45,3 +47,11 @@ court-dashboard/
   - python app.py
 4. **Open the app in your browser**
 5. **Provide case details and click submit to view results.**
+
+ ##  Sample Input for Testing  
+Use the following example to try the application:
+
+- **Case Type:** EP  
+- **Case Number:** 100087
+- **Case Year:** 2025  
+
