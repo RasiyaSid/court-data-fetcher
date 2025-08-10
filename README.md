@@ -15,12 +15,11 @@ The user provides case details via an HTML form, and the system scrapes the cour
 - Result display on a dedicated HTML page
 
 ##  Current Limitations
-## ⚠ Current Limitations
 - Extraction of data from the court page is not implemented in the current version.
 - PDF extraction of court orders is also not implemented.
 - The application currently focuses on opening the court search page and automating form submission.
 
-## 📂 Project Structure
+## Project Structure
 court-dashboard/  
 ├── app.py # Flask application  
 ├── scraper.py # Selenium scraping logic  
