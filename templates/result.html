@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Case Result</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+</head>
+<body>
+    {% if result.error %}
+        <p>{{ result.error }}</p>
+    {% else %}
+        <h3>Case Information</h3>
+        <p>{{ result.case_info }}</p>
+        <p>Order Date: {{ result.order_date }}</p>
+        <p><a href="{{ result.pdf_link }}" target="_blank">Download PDF</a></p>
+    {% endif %}
+</body>
+</html>
