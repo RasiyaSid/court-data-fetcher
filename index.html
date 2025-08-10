@@ -1,0 +1,75 @@
+<!--
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Court Case Fetcher</title>
+</head>
+<body>
+    <h1>Search Court Case</h1>
+    <form method="POST" action="/">
+        <label for="case_type">Case Type:</label>
+        <input id="case_type" type="text" name="case_type" placeholder="e.g. 4" required><br>
+
+        <label for="case_number">Case Number:</label>
+        <input id="case_number" type="text" name="case_number" placeholder="e.g. 123" required><br>
+
+        <label for="case_year">Filing Year:</label>
+        <input id="case_year" type="text" name="case_year" placeholder="e.g. 2022" required><br>
+
+        <input type="submit" value="Fetch Case">
+    </form>
+
+    {% if case_data %}
+        <h2>Scraped Result Preview</h2>
+        {% if case_data.raw %}
+            <pre>{{ case_data.raw }}</pre>
+        {% elif case_data.error %}
+            <p style="color: red;">Error: {{ case_data.error }}</p>
+        {% endif %}
+    {% endif %}
+</body>
+</html>
+-->
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Thrissur Court Case Search</title>
+</head>
+<body>
+    <h2>Search Court Case</h2>
+    <form action="/submit" method="POST">
+         <!-- Case Type -->
+        <label for="case_type0">Case Type:</label>
+        <input type="text" id="case_type0" name="case_type0" required>
+        <br><br>
+
+        <!-- Case Number -->
+        <label for="case_number">Case Number:</label>
+        <input type="text" id="case_number" name="case_number" required>
+        <br><br>
+
+        <!-- Case Year -->
+        <label for="case_year">Case Year:</label>
+        <input type="text" id="case_year" name="case_year" required>
+        <br><br>
+
+        <input type="submit" value="Search">
+    </form>
+
+     {% if result %}
+        <h3>📄 Case Order Details:</h3>
+
+        {% if result.error %}
+            <p style="color:red;">❌ {{ result.error }}</p>
+        {% else %}
+            <ul>
+                <li><strong>Case Info:</strong> {{ result['Case Info'] }}</li>
+                <li><strong>Order Date:</strong> {{ result['Order Date'] }}</li>
+                <li><strong>PDF Link:</strong> <a href="{{ result['PDF Link'] }}" target="_blank">Download Order</a></li>
+            </ul>
+        {% endif %}
+    {% endif %}
+</body>
+</html>
